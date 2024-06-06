@@ -1,5 +1,8 @@
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
+import styles from "./index.module.css";// CSSファイルのインポート
+
 
 const IndexPage: NextPage = () => {
   const [imageUrl, setImageUrl] = useState("");
@@ -57,14 +60,14 @@ const IndexPage: NextPage = () => {
   }, [timer]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-      <button onClick={handleClick} style={{ position: "absolute", top: 20, left: 20, zIndex: 1 }}>
-        新しい画像を取得
-      </button>
-      <div style={{ position: "relative" }}>
-        {loading || <img src={imageUrl} style={{ maxWidth: "100%", maxHeight: "100%" }} />}
-      </div>
+    <div className={styles.container}>
+    {/* <button onClick={handleClick} className={styles.button}>
+      新しい画像を取得
+    </button> */}
+    <div className={styles.imageContainer}>
+      {loading ? <LoadingSpinner /> : <img src={imageUrl} className={styles.image} />}
     </div>
+  </div>
   );
 };
 

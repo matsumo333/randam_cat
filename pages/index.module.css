@@ -1,0 +1,22 @@
+/* index.module.css */
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button {
+  position: absolute;
+  top: 10px; /* 画像上端からの距離 */
+  left: 10px; /* 画像左端からの距離 */
+  z-index: 1; /* 画像より手前に表示 */
+}
+
+.image {
+  width: 800px; /* 画像の最大幅 */
+  max-height: 100%; /* 画像の最大高さ */
+}
+
