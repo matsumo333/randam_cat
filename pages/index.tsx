@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 const IndexPage: NextPage = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    fetchImage().then((newImage) => {
-      setImageUrl(newImage.url);
-      setLoading(false);
-    });
-  }, []);
+    useEffect(() => {
+      // コンポーネントがマウントされた直後に画像を読み込む
+      setTimeout(async () => {
+        const newImage = await fetchImage();
+        setImageUrl(newImage.url);
+        setLoading(false);
+      }, 3000); // 3秒後に実行
+    }, []);
   // ボタンをクリックしたときに画像を読み込む処理
   const handleClick = async () => {
     setLoading(true); // 読込中フラグを立てる
