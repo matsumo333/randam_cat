@@ -20,3 +20,9 @@
   max-height: 100%; /* 画像の最大高さ */
 }
 
+@media (max-width: 400px){
+  .image {
+    width: 400px; /* 画像の最大幅 */
+    max-height: 100%; /* 画像の最大高さ */
+  }
+}
